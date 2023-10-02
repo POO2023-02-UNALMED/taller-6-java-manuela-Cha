@@ -1,13 +1,14 @@
 package vehiculos;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Fabricante 
-{
+public class Fabricante {
     private String nombre;
     private Pais pais;
     static Map<Fabricante, Integer> countMap = new HashMap<>();
+    static ArrayList<Fabricante> fabricantes = new ArrayList<>();
 
     public Fabricante (String nombre, Pais pais){
         this.nombre = nombre;
@@ -29,16 +30,16 @@ public class Fabricante
         return this.pais;
     }
     public String toString(){
-        return this.nombre;
+        return nombre;
     }
 
     public static Fabricante fabricaMayorVentas(){
         for (Vehiculo vehiculo : Vehiculo.lvehiculos){
-            Pais.fabricantes.add(vehiculo.getFabricante());
-        } 
+            fabricantes.add(vehiculo.getFabricante());
+        }
         
-        for (Fabricante fabricante : Pais.fabricantes){
-            Pais.countMap.put(fabricante, countMap.getOrDefault(fabricante, 0) + 1);
+        for (Fabricante fabricante : fabricantes){
+            Fabricante.countMap.put(fabricante, countMap.getOrDefault(fabricante, 0) + 1);
         }
 
         Fabricante masRepetido = null;
@@ -51,5 +52,8 @@ public class Fabricante
             }
         }
         return masRepetido;
-    }
+        //System.out.println("El fabricante mas repetido es: " + masRepetido);
+        //System.out.println("desde Fabricante: " + fabricantes);
+        //System.out.println("desde Fabricante: " + Pais.paises);
+    }   
 }
