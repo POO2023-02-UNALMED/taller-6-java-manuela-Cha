@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Pais {
     private String nombre;
-    static ArrayList<Fabricante> fabricantes = new ArrayList<>();
-    static Map<Fabricante, Integer> countMap = new HashMap<>();
+    //static ArrayList<Fabricante> fabricantes = new ArrayList<>();
+    //static Map<Fabricante, Integer> countMap = new HashMap<>();
     static Map<Pais, Integer> mapaContador = new HashMap<>();
     static ArrayList<Pais> paises = new ArrayList<>();
 
@@ -26,15 +26,15 @@ public class Pais {
     }
     
     public static Pais paisMasVendedor (){
-        for (Fabricante fabricante : fabricantes){
+        Pais masRepetido = null;
+        int maximoContador = 0;
+
+        for (Fabricante fabricante : Fabricante.fabricantes){
             Pais.paises.add(fabricante.getPais());
         } 
         for (Pais pais : paises){
             Pais.mapaContador.put(pais, mapaContador.getOrDefault(pais, 0) + 1);
         }
-
-        Pais masRepetido = null;
-        int maximoContador = 0;
 
         for (Map.Entry<Pais, Integer> entry : mapaContador.entrySet()) {
             if (entry.getValue() > maximoContador) {
@@ -42,8 +42,10 @@ public class Pais {
                 masRepetido = entry.getKey();
             }
         }
-        
         return masRepetido;
+        //System.out.println("el pais mas vendedor es: " + masRepetido);
+        //System.out.println("desde Pais: " + Fabricante.fabricantes);
+        //System.out.println("desde Pais: " + paises);
         
     }
 
