@@ -41,7 +41,7 @@ public class Fabricante
             Pais.countMap.put(fabricante, countMap.getOrDefault(fabricante, 0) + 1);
         }
 
-        Fabricante masRepetido;
+        Fabricante masRepetido = null;
         int maximoContador = 0;
 
         for (Map.Entry<Fabricante, Integer> entry : countMap.entrySet()) {
