@@ -29,7 +29,7 @@ public class Fabricante
         return this.pais;
     }
     public String toString(){
-        return nombre;
+        return this.nombre;
     }
 
     public static Fabricante fabricaMayorVentas(){
