@@ -25,7 +25,7 @@ public class Pais {
         return nombre;
     }
     
-    public static Pais paisMayorVentas (){
+    public static Pais paisMasVendedor (){
         for (Fabricante fabricante : fabricantes){
             Pais.paises.add(fabricante.getPais());
         } 
