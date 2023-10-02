@@ -3,7 +3,8 @@ package vehiculos;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Fabricante {
+public class Fabricante 
+{
     private String nombre;
     private Pais pais;
     static Map<Fabricante, Integer> countMap = new HashMap<>();
@@ -48,8 +49,7 @@ public class Fabricante {
                 maximoContador = entry.getValue();
                 masRepetido = entry.getKey();
             }
-        } 
-
+        }
         return masRepetido;
-    
     }
+}
